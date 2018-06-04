@@ -1,0 +1,27 @@
+public void dataTransfer(Object typeObj,Object idObj, Object fieldMapObj){
+    if(idObj==null){
+        return;
+    };
+    String type=(String)typeObj;
+    List<String> titanIds = (List<String>)idObj;
+    Map<String,String> fieldMap=(Map<String,String>)fieldMapObj;
+    for(String id:titanIds){
+        Element e;
+        DefaultGraphTraversal dgt;
+        if('edge'.equals(type)){
+            dgt=g.E(id);
+        }else{
+            dgt=g.V(id);
+        };
+        if(dgt!=null&&dgt.hasNext()){
+            e=dgt.next();
+        }else{
+            continue;
+        };
+        for(String source:fieldMap.keySet()){
+            if(e.properties(source).hasNext()){
+                e.property(fieldMap.get(source),e.property(source).value());
+            };
+        };
+    };
+};

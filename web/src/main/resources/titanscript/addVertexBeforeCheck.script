@@ -1,0 +1,9 @@
+public void addVertexBeforeCheck(Object primaryKey,Object label,Object values){
+    if(label==null){
+        return;
+    };
+    if(!checkElementExist(primaryKey,'vertex')){
+        addVertexEsp(label,values);
+    };
+};
+

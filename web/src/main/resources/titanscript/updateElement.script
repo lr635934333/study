@@ -1,0 +1,9 @@
+public void updateElement(Object primaryKey,Object modifyValues,Object deleteValues){
+    if(primaryKey==null){
+        return;
+    };
+    DefaultGraphTraversal dgt=searchElement(primaryKey,'vertex');
+    Element ele=dgt.next();
+    updateProperties(ele,modifyValues);
+    deleteProperties(ele,deleteValues);
+};

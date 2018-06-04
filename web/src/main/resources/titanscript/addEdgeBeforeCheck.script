@@ -1,0 +1,10 @@
+public void addEdgeBeforeCheck(Object primaryKey,Object source,Object target,Object values,Object label){
+    if(label==null){
+        return;
+    };
+    if(!checkElementExist(primaryKey,'edge')){
+        Element sourceEle = getElement(source,'vertex');
+        Element targetEle = getElement(target,'vertex');
+        addEdgeEsp(sourceEle, targetEle, label,values);
+    };
+};

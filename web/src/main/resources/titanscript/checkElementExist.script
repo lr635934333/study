@@ -1,0 +1,4 @@
+public boolean checkElementExist(Object values,String type){
+    DefaultGraphTraversal dgt=searchElement(values,type);
+    return dgt.hasNext();
+};

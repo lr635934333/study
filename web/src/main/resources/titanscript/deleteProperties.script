@@ -1,0 +1,12 @@
+public void deleteProperties(Element ele,Object values){
+    if(values==null){
+        return;
+    };
+    List<String> properties=(List<String>)values;
+    for(String property:properties){
+        Iterator it=ele.properties(property);
+        if(it!=null){
+            while(it.hasNext()){it.next().remove();};
+        }
+    }
+};

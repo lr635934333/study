@@ -1,0 +1,8 @@
+public void addEdge(Object source,Object target,Object values,Object label){
+    if(label==null){
+        return;
+    };
+    Element sourceEle = getElement(source,'vertex');
+    Element targetEle = getElement(target,'vertex');
+    addEdgeEsp(sourceEle, targetEle, label,values);
+};

@@ -1,0 +1,15 @@
+public void addOrUpdateEdge(Object primaryKey,Object source,Object target,Object values,Object deleteValues,Object label){
+    if(label==null){
+        return;
+    };
+    DefaultGraphTraversal dgt=searchElement(primaryKey,'edge');
+    if(!checkElementExist(primaryKey,'edge')){
+        Element sourceEle = getElement(source,'vertex');
+        Element targetEle = getElement(target,'vertex');
+        addEdgeEsp(sourceEle, targetEle, label,values);
+    }else{
+        Element ele=dgt.next();
+        updateProperties(ele,values);
+        deleteProperties(ele,deleteValues);
+    };
+};

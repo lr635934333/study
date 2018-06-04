@@ -1,0 +1,20 @@
+public void updateProperties(Element e,Object values){
+    Map<String,Object> valueMap=null;
+    if(values!=null){
+        valueMap = (Map<String,Object>)values;
+    };
+    if(valueMap.size()==0){
+        return null;
+    };
+    for(String field:valueMap.keySet()){
+        Object fieldValue=valueMap.get(field);
+        if(fieldValue instanceof Set ||fieldValue instanceof List){
+            Collection<Object> objSet=(Collection<Object>)fieldValue;
+            for(Object obj:objSet){
+                e.property(field,obj);
+            };
+        }else{
+            e.property(field,valueMap.get(field));
+        };
+    };
+};

@@ -1,0 +1,4 @@
+public Element getElement(Object values,String type){
+    DefaultGraphTraversal dgt=searchElement(values,type);
+    return dgt.next();
+};

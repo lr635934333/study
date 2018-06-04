@@ -1,0 +1,23 @@
+public Vertex addVertexEsp(String label,Object values){
+    Map<String,Object> valueMap=null;
+    if(values!=null){
+        valueMap = (Map<String,Object>)values;
+    };
+    if(valueMap.size()==0){
+        return null;
+    };
+    Vertex vertex = graph.addVertex(T.label,label);
+    for(String field:valueMap.keySet()){
+        Object fieldValue=valueMap.get(field);
+        if(fieldValue instanceof Set){
+            Set<Object> objSet=(Set<Object>)fieldValue;
+            for(Object obj:objSet){
+                vertex.property(field,obj);
+            };
+        }else{
+            vertex.property(field,valueMap.get(field));
+        };
+    };
+    return vertex;
+};
+

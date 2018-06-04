@@ -1,0 +1,13 @@
+public void addOrUpdateVertex(Object primaryKey,String label,Object modifyValues,Object deleteValues){
+    if(label==null){
+        return;
+    };
+    DefaultGraphTraversal dgt=searchElement(primaryKey,'vertex');
+    if(dgt.hasNext()){
+        Element ele=dgt.next();
+        updateProperties(ele,modifyValues);
+        deleteProperties(ele,deleteValues);
+    }else{
+        addVertexEsp(label,modifyValues);
+    };
+};

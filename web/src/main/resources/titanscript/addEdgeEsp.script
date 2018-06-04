@@ -1,0 +1,11 @@
+public Edge addEdgeEsp(Element source, Element target, String label,Object values){
+    if(values==null){
+        return null;
+    };
+    Edge edge=source.addEdge(label,target);
+    Map<String,Object> valueMap=(Map<String,Object>)values;
+    for(String field:valueMap.keySet()){
+        edge.property(field,valueMap.get(field));
+    };
+    return edge;
+};
