@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--core-site.xml配置,hadoop会自动读取-->
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://192.168.0.111/</value>
+    </property>
+    <property>
+        <name>hadoop.tmp.dir</name>
+        <value>/home/liuran/hadoop</value>
+    </property>
+</configuration>
