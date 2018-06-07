@@ -35,6 +35,12 @@ public class StringUtils {
         specialSymbols.add("\\");
         specialSymbols.add("|");
         specialSymbols.add("/");
+        specialSymbols.add("!");
+        specialSymbols.add("`");
+        specialSymbols.add("^");
+        for (int i = 0; i < 10 ; i++){
+            specialSymbols.add("" + i);
+        }
     }
 
     public static String cancelSpecialSymbols(String value){

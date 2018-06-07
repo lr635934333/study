@@ -27,6 +27,7 @@ public class WordsCountJob {
 
         // 输入输出路径
         FileInputFormat.addInputPath(job, new Path(args[0]));
+        FileInputFormat.setMaxInputSplitSize(job, 1024 * 1024 * Integer.parseInt(args[2]) );
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
         // 设置Mapper和Reducer实现
@@ -36,6 +37,7 @@ public class WordsCountJob {
         //reducer作为Combiner
         job.setCombinerClass(WordsCountReducer.class);
 //        job.setPartitionerClass();
+
 
         // 设置输出格式
         job.setOutputKeyClass(Text.class);

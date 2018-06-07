@@ -2,10 +2,7 @@ package com.liuran.web.utils.analysisdoucument.documentloader;
 
 import com.liuran.web.utils.analysisdoucument.Constant;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -84,6 +81,41 @@ abstract public class DocumentAnalysis {
         }
 
         return words;
+    }
+
+    public List<String> getAllLine(File file){
+        return readFileAndGetAllLine(file);
+    }
+
+    public void mergeAllFile(String outPut){
+        File file = new File(outPut);
+        if (!file.exists()){
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        BufferedWriter writer = null;
+        try {
+             writer = new BufferedWriter(new FileWriter(file));
+             for (File f : getAllFile()){
+                 for (String line : readFileAndGetAllLine(f)){
+                     writer.write(line);
+                     writer.newLine();
+                 }
+             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            if (writer != null){
+                try {
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
 
