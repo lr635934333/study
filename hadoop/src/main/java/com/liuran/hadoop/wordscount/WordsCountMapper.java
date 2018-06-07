@@ -31,6 +31,7 @@ public class WordsCountMapper extends Mapper<LongWritable, Text, Text, IntWritab
                 }
                 text.set(str);
                 intWritable.set(1);
+                //mapper输出内容
                 context.write(text, intWritable);
             }
             //计数器

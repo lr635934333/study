@@ -34,6 +34,7 @@ public class WordsCountJob {
         job.setNumReduceTasks(1);
         job.setMapperClass(WordsCountMapper.class);
         job.setReducerClass(WordsCountReducer.class);
+
         //reducer作为Combiner
         job.setCombinerClass(WordsCountReducer.class);
 //        job.setPartitionerClass();

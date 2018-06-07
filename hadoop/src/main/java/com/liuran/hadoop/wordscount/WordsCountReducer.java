@@ -19,8 +19,10 @@ public class WordsCountReducer extends Reducer<Text, IntWritable, Text, IntWrita
             count = count + wordCount.get();
         }
 
+        //reduce输出数据
         context.write(key, new IntWritable(count));
 
+        //计数器
         context.getCounter("reduce", getInfo()).increment(1);
     }
 

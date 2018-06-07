@@ -5,6 +5,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Partitioner;
 
 /**
+ * 分区函数
  * 泛型KEY:Map输出KEY
  * 泛型VALUE:Map输出VALUE
  * */
