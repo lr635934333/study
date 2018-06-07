@@ -12,7 +12,7 @@ import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 
-public class WordsCountJob {
+public class WordsCountApp {
     public static void main(String[] args) throws Exception {
         // 设置jar包及作业名称
         Configuration configuration = new Configuration();
@@ -21,7 +21,7 @@ public class WordsCountJob {
         fileSystem.delete(new Path(args[1]), true);
 
         Job job = Job.getInstance(configuration);
-        job.setJarByClass(WordsCountJob.class);
+        job.setJarByClass(WordsCountApp.class);
         job.setJobName("WordCountApp");
         job.setInputFormatClass(TextInputFormat.class);
 

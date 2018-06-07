@@ -33,11 +33,12 @@ public class FileUtils {
 
     public static void testCreateTempData(){
         List<String> lines = new LinkedList<String>();
-        int base = -10;
-        for (int i = 1970; i <= 2020 ; i ++){
+
+        for (int i = 1900; i <= 2100 ; i ++){
+            int base = new Random().nextInt(10);
             Random random = new Random();
             for (int j = 0; j < 10000; j ++ ){
-                float temp = base + (random.nextFloat() * 60 );
+                float temp = base + (random.nextFloat() * 40 );
                 String line = "" + i + " " + temp;
                 lines.add(line);
             }

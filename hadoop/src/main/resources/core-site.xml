@@ -2,16 +2,16 @@
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <!--core-site.xml配置,hadoop会自动读取-->
 <configuration>
-    <!--<property>
+    <property>
         <name>fs.defaultFS</name>
         <value>file:///</value>
-    </property>-->
-    <property>
+    </property>
+    <!--<property>
         <name>fs.defaultFS</name>
         <value>hdfs://192.168.0.111/</value>
     </property>
     <property>
         <name>hadoop.tmp.dir</name>
         <value>/home/liuran/hadoop</value>
-    </property>
+    </property>-->
 </configuration>

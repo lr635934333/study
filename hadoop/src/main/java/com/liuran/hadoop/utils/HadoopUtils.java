@@ -45,9 +45,8 @@ public class HadoopUtils {
            String info = ManagementFactory.getCompilationMXBean().getName();
             return Integer.parseInt(info.substring(0, info.indexOf("@")));
         } catch (Exception e){
-            e.printStackTrace();
+            return 0;
         }
-        return 0;
     }
 
     private static String getTid(){
