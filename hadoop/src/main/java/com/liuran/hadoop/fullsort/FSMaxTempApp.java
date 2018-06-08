@@ -1,4 +1,4 @@
-package com.liuran.hadoop.maxtemp;
+package com.liuran.hadoop.fullsort;
 
 import com.liuran.hadoop.utils.HadoopUtils;
 import org.apache.hadoop.conf.Configuration;
@@ -16,10 +16,10 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.mapreduce.lib.partition.InputSampler;
 import org.apache.hadoop.mapreduce.lib.partition.TotalOrderPartitioner;
 
-public class MaxTempApp {
+public class FSMaxTempApp {
     public static void main(String[] args) throws Exception {
-//       forSamplePartitioner(args);
-       forCustomPartitioner(args);
+       forSamplePartitioner(args);
+//       forCustomPartitioner(args);
     }
 
     private static void forSamplePartitioner(String[] args) throws Exception{
@@ -33,12 +33,12 @@ public class MaxTempApp {
 
         //设置基本信息(configuration设置到Job后,下次使用需要通过job.getConfiguration()获取才能修改)
         Job job = Job.getInstance(configuration);
-        job.setJarByClass(MaxTempApp.class);
-        job.setJobName("MaxTempApp");
+        job.setJarByClass(FSMaxTempApp.class);
+        job.setJobName("FSMaxTempApp");
 
         //设置输入数据源,以及对应的Mapper(单个作业可以采用简单设置方式)
         MultipleInputs.addInputPath(job, new Path(args[0] + "/seq"),
-                SequenceFileInputFormat.class, MaxTempSequenceMapper.class);
+                SequenceFileInputFormat.class, FSMaxTempSequenceMapper.class);
 
         //设置Mapper key-value输出类型
         job.setMapOutputKeyClass(IntWritable.class);
@@ -48,13 +48,13 @@ public class MaxTempApp {
         FileInputFormat.setMaxInputSplitSize(job, 1024 * 1024 * Integer.parseInt(args[2]));
 
         //设置Combiner,reducer作为Combiner
-        job.setCombinerClass(MaxTempReducer.class);
+        job.setCombinerClass(FSMaxTempReducer.class);
 
         //设置分区函数
         job.setPartitionerClass(TotalOrderPartitioner.class);
 
         //设置reduce
-        job.setReducerClass(MaxTempReducer.class);
+        job.setReducerClass(FSMaxTempReducer.class);
         job.setNumReduceTasks(spiltSize);
 
         //reducer输出key-value类型
@@ -67,7 +67,7 @@ public class MaxTempApp {
 
         //设置采样器(放在设置的末尾)
         InputSampler.Sampler<IntWritable, FloatWritable> sampler =
-                new InputSampler.RandomSampler<IntWritable, FloatWritable>(0.2, 2000, spiltSize);
+                new InputSampler.RandomSampler<IntWritable, FloatWritable>(0.2, 500, spiltSize);
         //设置分区文件,可以不用设置,会有默认的分区文件
         TotalOrderPartitioner.setPartitionFile(job.getConfiguration(),  new Path(args[0] +"/par.list"));
         InputSampler.writePartitionFile(job, sampler);
@@ -85,19 +85,19 @@ public class MaxTempApp {
 
         //设置基本信息(configuration设置到Job后,下次使用需要通过job.getConfiguration()获取才能修改)
         Job job = Job.getInstance(configuration);
-        job.setJarByClass(MaxTempApp.class);
-        job.setJobName("MaxTempApp");
+        job.setJarByClass(FSMaxTempApp.class);
+        job.setJobName("FSMaxTempApp");
 
         //设置输入数据源,以及对应的Mapper(单个作业可以采用简单设置方式)
-        //job.setMapperClass(MaxTempSequenceMapper.class);
+        //job.setMapperClass(FSMaxTempSequenceMapper.class);
         //设置输入文件格式
         //job.setInputFormatClass(SequenceFileInputFormat.class);
         // 输入路径
         //FileInputFormat.addInputPath(job, new Path(args[0]));
         MultipleInputs.addInputPath(job, new Path(args[0]+"/text"),
-                TextInputFormat.class, MaxTempTextMapper.class);
+                TextInputFormat.class, FSMaxTempTextMapper.class);
         MultipleInputs.addInputPath(job, new Path(args[0] + "/seq"),
-                SequenceFileInputFormat.class, MaxTempSequenceMapper.class);
+                SequenceFileInputFormat.class, FSMaxTempSequenceMapper.class);
 
         //设置Mapper key-value输出类型
         job.setMapOutputKeyClass(IntWritable.class);
@@ -108,13 +108,13 @@ public class MaxTempApp {
 
 
         //设置Combiner,reducer作为Combiner
-        job.setCombinerClass(MaxTempReducer.class);
+        job.setCombinerClass(FSMaxTempReducer.class);
 
         //设置分区函数
-        job.setPartitionerClass(MaxTempPartitioner.class);
+        job.setPartitionerClass(FSMaxTempPartitioner.class);
 
         //设置reduce
-        job.setReducerClass(MaxTempReducer.class);
+        job.setReducerClass(FSMaxTempReducer.class);
         job.setNumReduceTasks(2);
 
         //reducer输出key-value类型

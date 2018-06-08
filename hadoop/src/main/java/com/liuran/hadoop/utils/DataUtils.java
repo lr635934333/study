@@ -5,7 +5,7 @@ import java.util.*;
 public class DataUtils {
     public static TreeMap<Integer, List<Float>> tempData(){
         TreeMap<Integer, List<Float>> result = new TreeMap<Integer, List<Float>>();
-        for (int year = 2100; year <= 2200 ; year ++){
+        for (int year = 2000; year <= 2200 ; year ++){
             int base = new Random().nextInt(10);
             Random random = new Random();
             List<Float> list = new ArrayList<Float>();
@@ -31,12 +31,12 @@ public class DataUtils {
     }
 
     public static void testCreateSeqTempData(){
-        HadoopUtils.createSeqFile("/Users/liuran/File/Program/data/hadoop/data/temp/temp.seq",
+        HadoopUtils.createSeqFile("/Users/liuran/File/Program/data/hadoop/data/temp/seq/temp.seq",
                 tempData());
 
     }
 
     public static void main(String[] args) {
-        testCreateTextTempData();
+        testCreateSeqTempData();
     }
 }

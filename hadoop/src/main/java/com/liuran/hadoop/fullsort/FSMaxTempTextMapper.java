@@ -1,4 +1,4 @@
-package com.liuran.hadoop.maxtemp;
+package com.liuran.hadoop.fullsort;
 
 import org.apache.hadoop.io.FloatWritable;
 import org.apache.hadoop.io.IntWritable;
@@ -8,7 +8,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
 
-public class MaxTempTextMapper extends Mapper<LongWritable, Text, IntWritable, FloatWritable>{
+public class FSMaxTempTextMapper extends Mapper<LongWritable, Text, IntWritable, FloatWritable>{
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String[] array = value.toString().split(" ");
