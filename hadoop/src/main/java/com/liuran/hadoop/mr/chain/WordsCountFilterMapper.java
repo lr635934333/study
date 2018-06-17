@@ -11,7 +11,7 @@ public class WordsCountFilterMapper extends Mapper<Text, IntWritable, Text, IntW
     @Override
     protected void map(Text key, IntWritable value, Context context)
             throws IOException, InterruptedException {
-        if (key.getLength() < 4){
+        if (key.getLength() < 3){
             return;
         }
 

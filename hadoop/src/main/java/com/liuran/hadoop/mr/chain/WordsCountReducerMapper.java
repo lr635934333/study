@@ -9,7 +9,7 @@ import java.io.IOException;
 public class WordsCountReducerMapper extends Mapper<Text, IntWritable, Text, IntWritable> {
     @Override
     protected void map(Text key, IntWritable value, Context context) throws IOException, InterruptedException {
-        if (value.get() >= 4){
+        if (value.get() > 4){
             context.write(key, value);
         }
     }
