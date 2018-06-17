@@ -21,7 +21,7 @@ public class SOMaxTempApp {
 
     private static void secondarySort(String[] args) throws Exception{
         // 设置jar包及作业名称
-        int spiltSize = 1;
+        int spiltSize = 2;
 
         Configuration configuration = new Configuration();
 
@@ -48,7 +48,7 @@ public class SOMaxTempApp {
 //        job.setCombinerClass(SOMaxTempReducer.class);
 
         //设置分区函数
-        job.setPartitionerClass(SOMaxTempPartitioner.class);
+//        job.setPartitionerClass(SOMaxTempPartitioner.class);
 
         //设置reduce
         job.setReducerClass(SOMaxTempReducer.class);
@@ -63,7 +63,7 @@ public class SOMaxTempApp {
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
         job.setGroupingComparatorClass(SOMaxTempGroupComparator.class);
-        job.setSortComparatorClass(SOMaxTempKeyComparator.class);
+        job.setSortComparatorClass(SOMaxTempSortComparator.class);
 
         //设置采样器(放在设置的末尾)
 //        InputSampler.Sampler<SOMaxTempKeyWritable, FloatWritable> sampler =

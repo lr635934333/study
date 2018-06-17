@@ -9,7 +9,12 @@ import java.io.IOException;
 
 public class SOMaxTempReducer extends Reducer<SOMaxTempKeyWritable, NullWritable, IntWritable, FloatWritable>{
     @Override
-    protected void reduce(SOMaxTempKeyWritable key, Iterable<NullWritable> values, Context context) throws IOException, InterruptedException {
+    protected void reduce(SOMaxTempKeyWritable key, Iterable<NullWritable> values, Context context)
+            throws IOException, InterruptedException {
         context.write(new IntWritable(key.getYear()), new FloatWritable(key.getTemp()));
+
+        for (NullWritable v : values){
+
+        }
     }
 }

@@ -3,8 +3,8 @@ package com.liuran.hadoop.secondarysort;
 import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.io.WritableComparator;
 
-public class SOMaxTempKeyComparator extends WritableComparator{
-    protected SOMaxTempKeyComparator(){
+public class SOMaxTempSortComparator extends WritableComparator{
+    protected SOMaxTempSortComparator(){
         super(SOMaxTempKeyWritable.class, true);
     }
 
