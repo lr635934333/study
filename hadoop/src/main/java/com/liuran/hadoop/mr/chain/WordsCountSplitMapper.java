@@ -1,4 +1,4 @@
-package com.liuran.hadoop.wordscount;
+package com.liuran.hadoop.mr.chain;
 
 import com.liuran.hadoop.utils.HadoopUtils;
 import com.liuran.hadoop.utils.StringUtils;
@@ -9,7 +9,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
 
-public class WordsCountMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
+public class WordsCountSplitMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 
     private String info;
 
@@ -26,9 +26,6 @@ public class WordsCountMapper extends Mapper<LongWritable, Text, Text, IntWritab
                 continue;
             }
             for (String str : StringUtils.humpSpile(word)){
-                if (str.length() < 2){
-                    continue;
-                }
                 text.set(str);
                 intWritable.set(1);
                 //mapper输出内容

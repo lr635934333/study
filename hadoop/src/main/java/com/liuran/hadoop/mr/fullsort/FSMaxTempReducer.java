@@ -1,4 +1,4 @@
-package com.liuran.hadoop.fullsort;
+package com.liuran.hadoop.mr.fullsort;
 
 import org.apache.hadoop.io.FloatWritable;
 import org.apache.hadoop.io.IntWritable;

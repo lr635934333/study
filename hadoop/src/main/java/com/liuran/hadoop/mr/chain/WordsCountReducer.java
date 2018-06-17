@@ -1,4 +1,4 @@
-package com.liuran.hadoop.wordscount;
+package com.liuran.hadoop.mr.chain;
 
 import com.liuran.hadoop.utils.HadoopUtils;
 import org.apache.hadoop.io.IntWritable;

@@ -1,4 +1,4 @@
-package com.liuran.hadoop.fullsort;
+package com.liuran.hadoop.mr.fullsort;
 
 import com.liuran.hadoop.utils.HadoopUtils;
 import org.apache.hadoop.conf.Configuration;

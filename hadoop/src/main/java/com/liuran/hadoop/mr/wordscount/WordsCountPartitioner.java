@@ -1,4 +1,4 @@
-package com.liuran.hadoop.wordscount;
+package com.liuran.hadoop.mr.wordscount;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;

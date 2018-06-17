@@ -1,4 +1,4 @@
-package com.liuran.hadoop.secondarysort;
+package com.liuran.hadoop.mr.secondarysort;
 
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.mapreduce.Partitioner;
