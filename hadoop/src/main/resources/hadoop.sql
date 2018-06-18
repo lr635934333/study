@@ -1,0 +1,12 @@
+CREATE TABLE word_count(
+  id VARCHAR(50) NOT NULL,
+  word VARCHAR(50) NOT NULL,
+  count INTEGER (10) NOT NULL,
+  PRIMARY KEY ( id )
+);
+
+CREATE TABLE word_txt(
+  id VARCHAR(50) NOT NULL,
+  txt VARCHAR(50) NOT NULL,
+  PRIMARY KEY ( id )
+);

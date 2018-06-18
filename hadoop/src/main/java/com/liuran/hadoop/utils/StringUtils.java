@@ -1,6 +1,7 @@
 package com.liuran.hadoop.utils;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class StringUtils {
@@ -68,6 +69,21 @@ public class StringUtils {
         }
 
         return tempValue.toString().split("_");
+    }
+
+    public static List<String> toWords(String value){
+        List<String> result = new LinkedList<String>();
+        value = StringUtils.cancelSpecialSymbols(value);
+        for(String word : value.split(" ")){
+            for (String w : humpSpile(word)){
+                if ("".equals(w.trim())){
+                    continue;
+                }
+                result.add(w.trim());
+            }
+        }
+
+        return result;
     }
 
     private static boolean needHumpSplit(String value){

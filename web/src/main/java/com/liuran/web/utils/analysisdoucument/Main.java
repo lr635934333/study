@@ -20,7 +20,7 @@ public class Main {
     }
 
     public static void mergerFile(){
-        DocumentAnalysis documentAnalyses = new JavaDocumentAnalysis("/Users/liuran/File/Program/sourceCode/hadoop-3.0.2-src");
-        documentAnalyses.mergeAllFile("/Users/liuran/File/Program/sourceCode/hadoopSourceCode-merge.txt");
+        DocumentAnalysis documentAnalyses = new JavaDocumentAnalysis("/Users/liuran/File/Program/sourceCode/java");
+        documentAnalyses.mergeAllFile("/Users/liuran/File/Program/sourceCode/java-merge.txt");
     }
 }

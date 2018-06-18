@@ -9,13 +9,13 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
 
-public class WordsCountDBMapper extends Mapper<LongWritable, MySqlDBWritable, Text, IntWritable>{
+public class WordsCountFileMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
     private String info;
     @Override
-    protected void map(LongWritable key, MySqlDBWritable value, Context context) throws IOException, InterruptedException {
+    protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         Text text = new Text();
         IntWritable intWritable = new IntWritable();
-        for (String word : StringUtils.toWords(value.getTxt())){
+        for (String word : StringUtils.toWords(value.toString())){
             text.set(word);
             intWritable.set(1);
             //mapper输出内容

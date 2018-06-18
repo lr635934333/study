@@ -16,25 +16,15 @@ public class WordsCountMapper extends Mapper<LongWritable, Text, Text, IntWritab
     @Override
     protected void map(LongWritable key, Text value, Context context)
             throws IOException, InterruptedException {
-
-        value.set(StringUtils.cancelSpecialSymbols(value.toString()));
         Text text = new Text();
         IntWritable intWritable = new IntWritable();
-        String[] array = value.toString().split(" ");
-        for (String word : array){
-            if (word == null || "".equals(word.trim())){
-                continue;
-            }
-            for (String str : StringUtils.humpSpile(word)){
-                if (str.length() < 2){
-                    continue;
-                }
-                text.set(str);
-                intWritable.set(1);
-                //mapper输出内容
-                context.write(text, intWritable);
-            }
-            //计数器
+
+        for (String word : StringUtils.toWords(value.toString())){
+            text.set(word);
+            intWritable.set(1);
+            //mapper输出内容
+            context.write(text, intWritable);
+
             context.getCounter("map", getInfo()).increment(1);
         }
     }

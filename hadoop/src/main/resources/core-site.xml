@@ -6,12 +6,12 @@
         <name>fs.defaultFS</name>
         <value>file:///</value>
     </property>
-    <!--<property>
-        <name>fs.defaultFS</name>
-        <value>hdfs://192.168.0.111/</value>
-    </property>
-    <property>
-        <name>hadoop.tmp.dir</name>
-        <value>/home/liuran/hadoop</value>
-    </property>-->
+    <!--<property>-->
+        <!--<name>fs.defaultFS</name>-->
+        <!--<value>hdfs://192.168.0.111/</value>-->
+    <!--</property>-->
+    <!--<property>-->
+        <!--<name>hadoop.tmp.dir</name>-->
+        <!--<value>/home/liuran/hadoop</value>-->
+    <!--</property>-->
 </configuration>

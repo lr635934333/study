@@ -9,7 +9,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
 
-public class WordsCountMapper extends Mapper<LongWritable, MySqlDBWritable, Text, IntWritable>{
+public class WordsCountDBMapper extends Mapper<LongWritable, MySqlDBWritable, Text, IntWritable>{
     private String info;
     @Override
     protected void map(LongWritable key, MySqlDBWritable value, Context context) throws IOException, InterruptedException {

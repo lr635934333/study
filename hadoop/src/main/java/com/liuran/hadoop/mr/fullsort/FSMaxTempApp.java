@@ -125,10 +125,6 @@ public class FSMaxTempApp {
         job.setOutputFormatClass(TextOutputFormat.class);
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
-        //设置输出文件格式
-        job.setOutputFormatClass(TextOutputFormat.class);
-        FileOutputFormat.setOutputPath(job, new Path(args[1]));
-
         // 等待作业完成后退出
         job.waitForCompletion(true);
     }

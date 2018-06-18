@@ -38,13 +38,13 @@ public class WordsCountApp {
         job.setNumReduceTasks(1);
 
         ChainMapper.addMapper(job, WordsCountSplitMapper.class,
-                LongWritable.class, Text.class, Text.class, IntWritable.class, configuration);
+                LongWritable.class, Text.class, Text.class, IntWritable.class, job.getConfiguration());
         ChainMapper.addMapper(job, WordsCountFilterMapper.class,
-                Text.class, IntWritable.class, Text.class, IntWritable.class, configuration);
+                Text.class, IntWritable.class, Text.class, IntWritable.class, job.getConfiguration());
         ChainReducer.setReducer(job, WordsCountReducer.class,
-                Text.class, IntWritable.class, Text.class, IntWritable.class, configuration);
+                Text.class, IntWritable.class, Text.class, IntWritable.class, job.getConfiguration());
         ChainReducer.addMapper(job, WordsCountReducerMapper.class,
-                Text.class, IntWritable.class, Text.class, IntWritable.class, configuration);
+                Text.class, IntWritable.class, Text.class, IntWritable.class, job.getConfiguration());
 
         job.setOutputFormatClass(TextOutputFormat.class);
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
