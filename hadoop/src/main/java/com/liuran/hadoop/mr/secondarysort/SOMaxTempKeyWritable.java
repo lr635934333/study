@@ -26,6 +26,7 @@ public class SOMaxTempKeyWritable implements WritableComparable<SOMaxTempKeyWrit
         this.temp = temp;
     }
 
+
     public int compareTo(SOMaxTempKeyWritable o) {
         if (o.year == year){
             if (o.temp == temp){

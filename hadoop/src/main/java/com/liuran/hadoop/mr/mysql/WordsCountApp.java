@@ -7,7 +7,6 @@ import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.db.DBConfiguration;
-import org.apache.hadoop.mapreduce.lib.db.DBInputFormat;
 import org.apache.hadoop.mapreduce.lib.db.DBOutputFormat;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 
@@ -38,6 +37,9 @@ public class WordsCountApp {
         //设置Mapper key-value输出类型
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(IntWritable.class);
+
+        //设置Combiner
+        job.setCombinerClass(WordsCountCombiner.class);
 
         //设置reduce
         job.setReducerClass(WordsCountReducer.class);
