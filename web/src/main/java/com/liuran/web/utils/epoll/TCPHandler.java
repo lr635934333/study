@@ -54,7 +54,7 @@ public class TCPHandler implements Runnable {
             return;
         }
         String str = new String(arr); // 將讀取到的byte內容轉為字符串型態
-        if ((str != null) && !str.equals(" ")) {
+        if (!str.equals(" ")) {
             process(str); // 邏輯處理
             System.out.println(sc.socket().getRemoteSocketAddress().toString()
                     + " > " + str);
