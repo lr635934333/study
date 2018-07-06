@@ -1,0 +1,26 @@
+hadoop1
+    NameNode
+    Elasticsearch
+    ResourceManager
+    Hive
+
+hadoop2
+    Elasticsearch
+    DataNode
+    NodeManager
+
+hadoop3
+    Elasticsearch
+    DataNode
+    NodeManager
+
+hadoop4
+    DataNode
+    NodeManager
+
+hadoop5
+    DataNode
+    SecondaryNameNode
+    NodeManager
+
+hadoop6(闲置)
