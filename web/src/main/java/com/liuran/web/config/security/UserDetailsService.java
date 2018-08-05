@@ -8,12 +8,12 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.util.ArrayList;
 
-public class CustomUserDetailsService implements AuthenticationUserDetailsService<CasAssertionAuthenticationToken> {
+public class UserDetailsService implements AuthenticationUserDetailsService<CasAssertionAuthenticationToken> {
     @Override
     public UserDetails loadUserDetails(CasAssertionAuthenticationToken token) throws UsernameNotFoundException {
         String login = token.getPrincipal().toString();
         String username = login.toLowerCase();
-        System.out.println("CustomUserDetailsService " + username);
+        System.out.println("UserDetailsService " + username);
         return new User(username, "", new ArrayList<>());
     }
 }
