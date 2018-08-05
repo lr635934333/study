@@ -1,6 +1,8 @@
 package com.liuran.web.config;
 
 import com.liuran.web.interceptor.DemoInterceptor;
+import com.liuran.web.interceptor.UserInfoInterceptor;
+import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -20,16 +22,22 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 @ComponentScan(value = "com.liuran")
 @EnableScheduling
 @EnableTransactionManagement
-public class WebConfig extends WebMvcConfigurationSupport {
+public class WebConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(demoInterceptor());
+        registry.addInterceptor(userInfoInterceptor());
         super.addInterceptors(registry);
     }
 
     @Bean
     public DemoInterceptor demoInterceptor(){
         return new DemoInterceptor();
+    }
+
+    @Bean
+    public UserInfoInterceptor userInfoInterceptor(){
+        return new UserInfoInterceptor();
     }
 
     @Bean

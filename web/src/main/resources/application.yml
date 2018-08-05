@@ -3,10 +3,10 @@ server:
 
 security:
   cas:
-    server: http://localhost:8080
+    server: http://localhost:8080/sso
     client: http://localhost:9001
     disable: false
-    ignore: /**/**
+#    ignore: /v0.1/user/**
 
 spring:
   datasource:

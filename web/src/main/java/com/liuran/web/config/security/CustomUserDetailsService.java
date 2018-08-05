@@ -13,6 +13,7 @@ public class CustomUserDetailsService implements AuthenticationUserDetailsServic
     public UserDetails loadUserDetails(CasAssertionAuthenticationToken token) throws UsernameNotFoundException {
         String login = token.getPrincipal().toString();
         String username = login.toLowerCase();
+        System.out.println("CustomUserDetailsService " + username);
         return new User(username, "", new ArrayList<>());
     }
 }

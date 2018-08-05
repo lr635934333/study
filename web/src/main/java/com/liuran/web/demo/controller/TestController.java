@@ -7,20 +7,26 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/demo/test")
+@RequestMapping(value = "/demo")
 public class
 TestController {
 
     @Autowired
     private TestService service;
 
-    @RequestMapping(value = "", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE } )
+    @PostMapping(value = "", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE } )
     public TestDemo create(@RequestBody TestDemo demo){
         return service.testService(demo);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/{id}")
     public TestDemo get(@PathVariable String id){
         return service.get(id);
+    }
+
+
+    @GetMapping(value = "info")
+    public String info(){
+        return "demo info";
     }
 }
