@@ -16,7 +16,7 @@ public class Main {
         }
 
         Deque<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
+        queue.add(root.left);
 
         while(queue.size() != 0){
             TreeNode node = queue.pop();

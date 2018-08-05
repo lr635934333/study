@@ -15,7 +15,7 @@ public class PullDataTask {
     @Autowired
     private StockDataService service;
 
-    @Scheduled(cron = cron)
+//    @Scheduled(cron = cron)
     public void schedule(){
         Set<String> codes = new HashSet<>();
         codes.add("sz000938");

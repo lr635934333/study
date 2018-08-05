@@ -6,7 +6,7 @@
 
   <name>web</name>
   <groupId>web.study.lr</groupId>
-  <artifactId>war</artifactId>
+  <artifactId>jar</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <parent>
@@ -56,6 +56,20 @@
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-cas</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>javax.inject</groupId>
+      <artifactId>javax.inject</artifactId>
+      <version>1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-logging</artifactId>
      <!-- <exclusions>
         <exclusion>
@@ -64,6 +78,18 @@
         </exclusion>
       </exclusions>-->
     </dependency>
+
+    <dependency>
+      <groupId>org.elasticsearch</groupId>
+      <artifactId>elasticsearch</artifactId>
+      <version>6.3.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+    </dependency>
+
 
     <dependency>
       <groupId>mysql</groupId>
@@ -92,6 +118,12 @@
       <groupId>org.apache.directory.studio</groupId>
       <artifactId>org.apache.commons.lang</artifactId>
       <version>2.6</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.2.4</version>
     </dependency>
 
   </dependencies>

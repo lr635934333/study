@@ -1,6 +1,7 @@
 package com.liuran.web.config;
 
-import com.mchange.v2.c3p0.ComboPooledDataSource;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -12,7 +13,6 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
-import java.beans.PropertyVetoException;
 
 @Configuration
 @EnableJpaRepositories(
@@ -21,17 +21,9 @@ import java.beans.PropertyVetoException;
 )
 public class MySqlConfig {
     @Bean
+    @ConfigurationProperties(prefix = "spring.datasource.mysql")
     public DataSource dataSource() {
-        ComboPooledDataSource dataSource = new ComboPooledDataSource();
-        try {
-            dataSource.setDriverClass(Constant.jdbc.getProperty("jdbc.driver"));
-        } catch (PropertyVetoException e) {
-            e.printStackTrace();
-        }
-        dataSource.setUser(Constant.jdbc.getProperty("jdbc.username"));
-        dataSource.setJdbcUrl(Constant.jdbc.getProperty("jdbc.url"));
-        dataSource.setPassword(Constant.jdbc.getProperty("jdbc.password"));
-        return dataSource;
+        return DataSourceBuilder.create().build();
     }
 
     @Bean
