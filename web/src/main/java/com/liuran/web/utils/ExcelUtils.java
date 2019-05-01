@@ -88,10 +88,9 @@ public class ExcelUtils {
 
                 List<Line> allLine = new ArrayList<>();
                 int length = 0;
-                for(int i=0; i< sheet.getRows(); i ++){
-                    if (i == 0){
-                        length = sheet.getRow(i).length;
-                    }
+                int rows = sheet.getRows();
+                for(int i=0; i< rows; i ++){
+                    length = sheet.getRow(i).length;
                     Line line = new Line(length, sheet.getRow(i));
                     allLine.add(line);
                     maxWidth = length > maxWidth ? length : maxWidth;
