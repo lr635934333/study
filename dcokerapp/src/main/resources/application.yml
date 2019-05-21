@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:5.7
+        volumeMounts:
+        - name: time-zone
+          mountPath: /etc/localtime
+        - name: mysql-data
+          mountPath: /var/lib/mysql
+        - name: mysql-logs
+          mountPath: /var/log/mysql
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "123456"
+      volumes:
+      - name: time-zone
+        hostPath:
+          path: /etc/localtime
+      - name: mysql-data
+        hostPath:
+          path: /data/mysql/data
+      - name: mysql-logs
+        hostPath:
+          path: /data/mysql/logs
