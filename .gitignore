@@ -12,3 +12,4 @@ logs/*
 /.idea
 /web/target
 /hadoop/target
+.DS_Store
