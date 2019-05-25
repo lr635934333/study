@@ -3,7 +3,7 @@
 ## Git基础
 ### Git工作流程
 
-![](.\git工作流程.png)
+![](./git工作流程.png)
 
 * Workspace：工作区（idea）
 
