@@ -1,8 +1,9 @@
 # Git使用方法
 
 ## Git基础
-### Git工作流程
+### 什么是GIT？
 
+### Git工作流程
 ![](./git工作流程.png)
 
 * Workspace：工作区（idea）
@@ -12,9 +13,10 @@
 # 暂存区会记录git add添加的文件
 $ git add . 
 ```
-* Repository：仓库区（或本地仓库）
+* Repository：本地仓库
 ``` shell
 # git commit命令提交的内容会存入本地仓库，方便下一步通过git push同步到远程仓库
+$ git init 创建一个空的git数据库
 $ git commit -m 'message'
 ```
 * Remote：远程仓库
@@ -28,9 +30,23 @@ $ git push origin develop
 ![](.\git命令.png)
 
 
+## GIT原理
+### GIT存储数据结构
 
+### GIT快照实现原理
 
-## Git
+### GIT命令都做了些什么
+#### git add .
+
+#### git commit -m 'message' 或 git commit -am 'message'
+
+#### git merge
+
+#### git reset --hard 3af3fa
+
+#### git revert 3af3fa
+
+### 
 
 
 ## Git常见问题
