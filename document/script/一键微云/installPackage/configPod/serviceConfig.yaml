@@ -1,0 +1,19 @@
+services:
+- name: bright-kitchen
+  isNodePort: true
+  ports:
+   - name: bright-kitchen-11311
+     nodePort: 11311
+     port: 80
+     targetPort: 80
+  servicePod: bright-kitchen-pod
+
+- name: bright-kitchen-web
+  isNodePort: true
+  ports:
+   - name: bright-kitchen-web-11300
+     nodePort: 11310
+     port: 8000
+     targetPort: 8000
+  servicePod: bright-kitchen-web-pod 
+

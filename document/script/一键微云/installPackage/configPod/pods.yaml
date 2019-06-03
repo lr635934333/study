@@ -1,0 +1,16 @@
+pods:
+- name: bright-kitchen-pod
+  replicas: 1
+  containers:
+  - bright-kitchen
+  stateful: false
+  onePerNode: false
+  hostnetwork: false
+
+- name: bright-kitchen-web-pod
+  replicas: 1
+  containers:
+  - bright-kitchen-web
+  stateful: false
+  onePerNode: false
+  hostnetwork: false 

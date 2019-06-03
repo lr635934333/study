@@ -66,6 +66,11 @@ $ git merge origin/master
 # fetch 并 merge
 $ git pull origin master
 ```
+
+### git merge和git rebase的区别
+![](.\git merge和rebase的区别-1.png)
+![](.\git merge和rebase的区别.png)
+
 ### git http免登陆
 设置记住密码（默认15分钟）：
 ``` shell

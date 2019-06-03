@@ -1,0 +1,30 @@
+containers:
+- name: bright-kitchen
+  image: bright-kitchen:ISSSV100R001B02D001T201906031032
+  volumes:
+    /opt/config:bright-kitchen: configmap
+    /etc/localtime: hostpath
+  resources:
+    cpu: [1000,2000]
+    memory: [1024, 2048]
+  systemEnv:
+    pod_ip: PODIP
+    pod_name: PODNAME
+  ports:
+  - name: "java-80"
+    containerPort: 80
+  - name: "java-81"
+    containerPort: 81
+  - name: "java-9090"
+    containerPort: 9090
+- name: bright-kitchen-web
+  image: bright-kitchen-web:ISSSV100R001B02D001T201905281715
+  volumes:
+    /opt/config:bright-kitchen-web: configmap
+    /etc/localtime: hostpath
+  systemEnv:
+    pod_ip: PODIP
+    pod_name: PODNAME
+  ports:
+  - name: ""
+    containerPort: 8000
