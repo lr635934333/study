@@ -29,6 +29,14 @@ systemctl start docker
     "https://ambuwpg2.mirror.aliyuncs.com"
   ]
 }
+
+# docker启动redis
+docker run -d -p 9600:6379 -v /data/docker/redis/9600:/data --name redis redis
+# docker启动redis命令行
+docker exec -it {containerName} redis-cli
+
+# docker 仓库
+docker run -d -p 5000:5000 --restart=always --name registry2 registry:2
 ```
 
 ### Linux系统常用操作
@@ -138,4 +146,25 @@ yum repolist
 * 获取可安装列表
 ``` shell 
 yum list java* --showduplicates | sort -r
+```
+
+### Linux创建用户并授权目录
+``` shell 
+# 新建用户组
+groupadd zzt
+# 新建用户并添加组
+useradd -r -g zzt zzt
+# 添加到root用户组（可选）
+usermod -G root zzt
+# 修改密码
+passwd zzt
+# 创建home目录
+mkdir /home/zzt
+# 创建目录
+mkdir /opt/zzt
+# 分配目录权限分配给指定用户
+chown -R zzt:zzt  /opt/zzt
+chown -R zzt:zzt  /home/zzt
+# 删除用户
+userdel kafka
 ```

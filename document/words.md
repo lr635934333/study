@@ -150,13 +150,13 @@ kind
 listener
 root
 nodes
-mock(模拟)
+mock
 group
-required(需求)
+required
 extends
 which
-specific(具体的)
-access(访问;进入;使用)
+specific
+access
 first
 filter
 more

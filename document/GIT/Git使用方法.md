@@ -46,8 +46,6 @@ $ git push origin develop
 
 #### git revert 3af3fa
 
-### 
-
 
 ## Git常见问题
 ### git fetch 和 git pull 的区别
@@ -85,3 +83,26 @@ git config --global credential.helper store
 ``` shell
 git remote add origin http://yourname:password@hostname/bright-kitchen.git
 ```
+### git 添加远程仓库地址
+``` shell
+# 删除远程仓库地址
+git remote rm origin 
+
+# 添加远程仓库地址
+git remote add origin http://192.168.110.8:10080/liuran/framework-alarm.git/
+```
+
+### git dockers安装
+``` shell
+# docker安装命令
+docker run -d  -p 443:443 -p 10080:80 -p 222:22 --name gitlab --restart always -v /data/gitlab/config:/etc/gitlab -v /data/gitlab/logs:/var/log/gitlab -v /data/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce
+# gitlab.rb文件内容默认全是注释
+$ vim /home/gitlab/config/gitlab.rb
+# 配置http协议所使用的访问地址,不加端口号默认为80
+external_url 'http://192.168.199.231'
+# 配置ssh协议所使用的访问地址和端口
+gitlab_rails['gitlab_ssh_host'] = '192.168.199.231'
+gitlab_rails['gitlab_shell_ssh_port'] = 222（此端口是run时22端口映射的222端口）
+```
+
+
